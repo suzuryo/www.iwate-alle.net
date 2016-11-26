@@ -1,7 +1,6 @@
-require('webpack');
 const path = require('path');
 
-module.exports = {
+const config = {
   entry: {
     bundle: './source/js/bundle.js',
   },
@@ -45,3 +44,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = config;
