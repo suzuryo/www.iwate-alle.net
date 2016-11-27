@@ -5,20 +5,21 @@
 @import 'base/base';          // Bitters
 
 header {
+  @include outer-container();
 }
 
 article {
+  @include outer-container();
 }
 
 footer {
+  @include outer-container();
 }
 
 #article_index {
-  h1,h2,h3,h4,h5,h6 {
-    background-color: #ccf;
-  }
-
-  p,ul,dl,form {
-    font-size: 1rem;
+  h1 {
+    @include span-columns(12);
+    @include omega();
+    background-color: #ccc;
   }
 }

@@ -26,3 +26,5 @@ configure :build do
   activate :asset_hash
   activate :gzip
 end
+
+config[:host] = 'http://www.iwate-alle.net'
