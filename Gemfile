@@ -9,4 +9,7 @@ group :development do
   gem 'rspec'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'ruby_gntp'
 end
