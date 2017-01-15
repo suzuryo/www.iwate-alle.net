@@ -28,3 +28,7 @@ configure :build do
 end
 
 config[:host] = 'http://www.iwate-alle.net'
+
+# Helpers
+require 'lib/titled_helpers'
+helpers TitledHelpers

@@ -8,10 +8,10 @@ html lang='ja' prefix='og: http://ogp.me/ns#'
   head
     meta charset='utf-8'
     meta http-equiv='x-ua-compatible' content='ie=edge'
-    title == current_page.data.title || 'Site Name'
     meta name="description" content=""
+    title = titled
     meta name='viewport' content='width=device-width, initial-scale=1.0'
-    meta property='og:title' content="#{current_page.data.title || 'Site Name'}"
+    meta property='og:title' content="#{titled}"
     meta property='og:type' content='website'
     meta property='og:url' content="#{config[:host]}#{current_page.url}"
     link rel='apple-touch-icon' sizes='152x152' href='/img/apple-touch-icon-152×152.png'
