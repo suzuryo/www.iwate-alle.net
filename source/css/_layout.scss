@@ -1,0 +1,22 @@
+// Layout
+
+header {
+  @include outer-container;
+}
+
+nav {
+  @include outer-container;
+  ul {
+    @include span-columns(12);
+  }
+}
+
+main {
+  article {
+    @include outer-container;
+  }
+}
+
+footer {
+  @include outer-container;
+}

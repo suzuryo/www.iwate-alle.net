@@ -1,25 +1,15 @@
 @charset "utf-8";
 
-@import 'bourbon/bourbon';    // Bourbon
-@import 'neat/neat';          // Neat
-@import 'base/base';          // Bitters
+// Base
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+@import 'base/base';
 
-header {
-  @include outer-container();
-}
+// Layout
+@import 'layout';
 
-article {
-  @include outer-container();
-}
+// Pages
+@import 'pages/index';
 
-footer {
-  @include outer-container();
-}
-
-#article_index {
-  h1 {
-    @include span-columns(12);
-    @include omega();
-    background-color: #ccc;
-  }
-}
+// IE
+@import 'ie';

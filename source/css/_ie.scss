@@ -1,0 +1,6 @@
+// IE 10 over css hack
+@media all and (-ms-high-contrast:none){
+  main {
+    display: block;
+  }
+}

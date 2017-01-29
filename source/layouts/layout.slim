@@ -15,8 +15,11 @@ html lang='ja' prefix='og: http://ogp.me/ns#'
 
   body id="#{page_classes}"
     header
-      | header
-    article id="article_#{page_classes}"
-      == yield
+      = partial 'header'
+    nav
+      = partial 'nav'
+    main role='main'
+      article
+        == yield
     footer
-      | footer
+      = partial 'footer'
