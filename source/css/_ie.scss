@@ -1,6 +1,13 @@
 // IE 10 over css hack
-@media all and (-ms-high-contrast:none){
+@media all and (-ms-high-contrast:none) {
   main {
+    display: block;
+  }
+}
+
+// IE 11 over css hack
+@media all and (-ms-high-contrast:none) {
+  *::-ms-backdrop, main {
     display: block;
   }
 }
