@@ -7,8 +7,16 @@ html lang='ja' prefix='og: http://ogp.me/ns#'
     meta name="description" content="#{current_page.data.desc}"
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta property='og:title' content="#{titled}"
-    meta property='og:type' content='website'
+    meta property='og:description' content="#{current_page.data.desc}"
     meta property='og:url' content="#{config[:host]}#{current_page.url}"
+    meta property='og:image' content=''
+    meta property='og:type' content='website'
+    meta property='og:locale' content='ja_JP'
+    meta name='twitter:title' content="#{titled}"
+    meta name='twitter:description' content="#{current_page.data.desc}"
+    meta name='twitter:image' content=''
+    meta name='twitter:card' content='summary'
+    /meta name='twitter:site' content='@'
     link rel='apple-touch-icon' sizes='152x152' href='/img/apple-touch-icon-152×152.png'
     == stylesheet_link_tag 'styles'
     == javascript_include_tag 'bundle'
