@@ -23,16 +23,19 @@ describe 'index', type: :feature do
     expect(page).to have_selector 'main[role=main] > article'
   end
 
+  it 'has div.panel' do
+    expect(page).to have_selector 'article > div.panel > section'
+  end
+
   it 'has the #welcome section' do
-    within 'main[role=main] > article > section#welcome' do
-      expect(page).to have_selector 'h1', text: 'いわてアレルギーの会'
-      expect(page).to have_selector 'h2', text: 'アレルギーっ子が安心して生活できる社会を'
+    within 'main[role=main] > article > div.panel > section#welcome' do
+      expect(page).to have_selector 'h1', text: 'アレルギーっ子が安心して生活できる社会を'
       expect(page).to have_selector 'p'
     end
   end
 
   it 'has the #goal section' do
-    within 'main[role=main] > article > section#goal' do
+    within 'main[role=main] > article > div.panel > section#goal' do
       expect(page).to have_selector 'h1', text: '主な活動内容'
       expect(page).to have_selector 'dl dt'
       expect(page).to have_selector 'dl dd'
@@ -40,7 +43,7 @@ describe 'index', type: :feature do
   end
 
   it 'has the #activities section' do
-    within 'main[role=main] > article > section#activities' do
+    within 'main[role=main] > article > div.panel > section#activities' do
       expect(page).to have_selector 'h1', text: '企画中の活動'
       expect(page).to have_selector 'dl dt'
       expect(page).to have_selector 'dl dd'
@@ -48,14 +51,14 @@ describe 'index', type: :feature do
   end
 
   it 'has the #line_at section' do
-    within 'main[role=main] > article > section#line_at' do
-      expect(page).to have_selector 'h1', '『岩手アレルギー支援情報』LINE@について'
+    within 'main[role=main] > article > div.panel > section#line_at' do
+      expect(page).to have_selector 'h1', text: '『岩手アレルギー支援情報』LINE@について'
       expect(page).to have_selector 'ul li'
     end
   end
 
   it 'has the #network section' do
-    within 'main[role=main] > article > section#network' do
+    within 'main[role=main] > article > div.panel > section#network' do
       expect(page).to have_selector 'div > h1'
       expect(page).to have_selector 'div > div.url'
       expect(page).to have_selector 'div > div.mail'
