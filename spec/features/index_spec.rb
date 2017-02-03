@@ -28,7 +28,7 @@ describe 'index', type: :feature do
   end
 
   it 'has the #welcome section' do
-    within 'main[role=main] > article > div.panel > section#welcome' do
+    within 'main[role=main] > article > div.hero > section#welcome' do
       expect(page).to have_selector 'h1', text: 'アレルギーっ子が安心して生活できる社会を'
       expect(page).to have_selector 'p'
     end
