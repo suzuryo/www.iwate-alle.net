@@ -1,4 +1,5 @@
 require 'slim'
+require 'middleman-autoprefixer'
 
 set :css_dir, 'css'
 set :js_dir, 'js'
@@ -34,3 +35,7 @@ config[:host] = 'http://www.iwate-alle.net'
 # Helpers
 require 'lib/titled_helpers'
 helpers TitledHelpers
+
+activate :autoprefixer do
+  config.browsers = ['defaults']
+end
