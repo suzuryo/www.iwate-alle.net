@@ -9,6 +9,8 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+page '/', layout: 'layout-index'
+
 configure :development do
   activate :livereload, host: '10.1.17.17'
 end

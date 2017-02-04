@@ -1,9 +1,118 @@
+@mixin replace-text {
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: transparent;
+}
+
 body#index {
-  section {
-    &#welcome {}
-    &#goal {}
-    &#activities {}
-    &#line_at {}
-    &#network {}
+  background-color: #ababab;
+  margin:0;
+  padding:0;
+  nav.summary {
+    ul {
+      height: 100vh;
+      width: 100%;
+    }
+    li {
+      height: 25%;
+      width: 100%;
+      overflow: hidden;
+      transform: translateZ(1px);
+      @media only screen and (min-width: 1024px) {
+        display: inline-block;
+        height: 100%;
+        width: 25%;
+        float: left;
+      }
+    }
+    a {
+      text-decoration: none;
+      display: block;
+      height: 100vh;
+      width: 100%;
+      opacity: 1;
+      & > .p_t {
+        position: absolute;
+        width: 100%;
+        top: calc(50% - 20px);
+        left: 0;
+        color: #fff;
+        text-align: center;
+        @media only screen and (min-width: 1024px) {
+          width:25%;
+          top: 50vh;
+        }
+      }
+      &.goal {
+        background: url(/img/img-1.jpg) center center / cover no-repeat;
+        transform: translateY(0%);
+        .p_t {
+          transform: translateY(-37.5vh);
+        }
+      }
+      &.activities {
+        background: url(/img/img-2.jpg) center center / cover no-repeat;
+        transform: translateY(-25%);
+        .p_t {
+          transform: translateY(-12.5vh);
+        }
+      }
+      &.line_at {
+        background: url(/img/img-3.jpg) center center / cover no-repeat;
+        transform: translateY(-50%);
+        .p_t {
+          transform: translateY(12.5vh);
+        }
+      }
+      &.network {
+        background: url(/img/img-4.jpg) center center / cover no-repeat;
+        transform: translateY(-75%);
+        .p_t {
+          transform: translateY(37.5vh);
+        }
+      }
+      @media only screen and (min-width: 1024px) {
+        width: 400%;
+        &.goal {
+          transform: translateX(0%);
+          .p_t {
+            transform: translateX(0%) translateY(0%);
+          }
+        }
+        &.activities {
+          transform: translateX(-25%);
+          .p_t {
+            transform: translateX(100%) translateY(0%);
+          }
+        }
+        &.line_at {
+          transform: translateX(-50%);
+          .p_t {
+            transform: translateX(200%) translateY(0%);
+          }
+        }
+        &.network {
+          transform: translateX(-75%);
+          .p_t {
+            transform: translateX(300%) translateY(0%);
+          }
+        }
+      }
+    }
+  }
+  article.contents {
+    section {
+      position: absolute;
+      top:0;
+      left:0;
+      height:100%;
+      width:100%;
+      opacity: 0;
+      &.goal {}
+      &.activities {}
+      &.line_at {}
+      &.network {}
+    }
   }
 }
