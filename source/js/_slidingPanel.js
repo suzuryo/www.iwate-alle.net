@@ -2,7 +2,9 @@
 const $ = require('jquery');
 
 $(() => {
-  console.log('ready');
+  $(window).on('hashchange', (e) => {
+    console.log(window.location.hash);
+  });
 });
 
 module.exports = {
