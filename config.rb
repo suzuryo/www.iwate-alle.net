@@ -10,7 +10,7 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 configure :development do
-  activate :livereload
+  activate :livereload, host: '10.1.17.17'
 end
 
 activate :external_pipeline,
