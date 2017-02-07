@@ -11,6 +11,7 @@ body#index {
   & > div.container {
     & > nav {
       & > ul.summary {
+        position: relative;
         height: 100vh;
         width: 100%;
         z-index: 2;
@@ -18,13 +19,11 @@ body#index {
           height: 25%;
           width: 100%;
           overflow: hidden;
-          transform: translateZ(1px);
+          //transform: translateZ(1px);
           &.slide_out {
             transform: translateX(-100%);
           }
           & > a {
-            position: relative;
-            text-decoration: none;
             display: block;
             height: 100vh;
             width: 100%;
@@ -132,12 +131,12 @@ body#index {
     main[role='main'] {
       & > article {
         & > ul.contents {
-          z-index: 1;
           position: absolute;
-          top: 0;
-          left: 0;
+          top:0;
+          left:0;
+          width:100%;
           height: 100vh;
-          width: 100vw;
+          z-index: 1;
           & > li {
             position: absolute;
             top: 0;
@@ -146,8 +145,15 @@ body#index {
             width: 100%;
             opacity: 0;
             &.selected {
-              z-index: 1;
               opacity: 1;
+            }
+            &.content-visible {
+              > &.preview {
+
+              }
+              > section {
+                display: block;
+              }
             }
             & > div.preview {
               display: block;
@@ -164,7 +170,8 @@ body#index {
               }
             }
             & > section {
-              display: block;
+              display: none;
+              min-height: 100vh;
             }
             &.goal {
               & > div.preview {
