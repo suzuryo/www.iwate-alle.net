@@ -28,6 +28,9 @@ configure :build do
   activate :minify_javascript
   activate :asset_hash
   activate :gzip
+  activate :autoprefixer do
+    config.browsers = ['defaults']
+  end
 end
 
 config[:host] = 'http://www.iwate-alle.net'
@@ -35,7 +38,3 @@ config[:host] = 'http://www.iwate-alle.net'
 # Helpers
 require 'lib/titled_helpers'
 helpers TitledHelpers
-
-activate :autoprefixer do
-  config.browsers = ['defaults']
-end
