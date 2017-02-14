@@ -8,6 +8,51 @@
 body#index {
   margin:0;
   padding:0;
+  & > a.nav-trigger {
+    position: absolute;
+    z-index: 4;
+    top: 24px;
+    right: 5%;
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.8);
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: background 0.2s;
+    & > span.cd-icon {
+      display: inline-block;
+      width:18px;
+      height:2px;
+      left:50%;
+      top:50%;
+      bottom:auto;
+      right:auto;
+      transform: translate(-50%, -50%);
+      transition: transform 0.3s, background-color 0.3s;
+      position: absolute;
+      background-color: #fff;
+      border-radius: 2px;
+      &:before, &:after {
+        content: '';
+        top:0;
+        right:0;
+        width:100%;
+        height:100%;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 2px;
+        backface-visibility: hidden;
+      }
+      &:before {
+        transform: translateY(-6px);
+      }
+      &:after {
+        transform: translateY(6px);
+      }
+    }
+  }
   & > div.container {
     & > nav {
       & > ul.summary {
