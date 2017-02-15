@@ -44,12 +44,24 @@ body#index {
         background-color: #fff;
         border-radius: 2px;
         backface-visibility: hidden;
+        transition: transform 0.3s;
       }
       &:before {
         transform: translateY(-6px);
       }
       &:after {
         transform: translateY(6px);
+      }
+    }
+    &.project-open {
+      & > span.cd-icon {
+        background-color: rgba(255,255,255,0);
+        &:before {
+          transform: translateY(0) rotate(45deg);
+        }
+        &:after {
+          transform: translateY(0) rotate(-45deg);
+        }
       }
     }
   }
