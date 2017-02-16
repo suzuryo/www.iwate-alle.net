@@ -5,7 +5,7 @@ const page = require('page');
 const resetClass = () => {
   $('.summary > li').removeClass('slide_out');
   $('.contents > li').removeClass('selected', 'content-visible');
-  $('a.nav-trigger').removeClass('project-open');
+  $('a.nav-trigger').removeClass('project-open', 'nav-visible');
 };
 
 const slideOut = () => {
@@ -44,6 +44,11 @@ const test1 = (e) => {
       $('.contents > li.network').addClass('selected', 'content-visible');
       $('a.nav-trigger').addClass('project-open');
       break;
+    case 'primary-nav':
+      $('a.nav-trigger').addClass('nav-visible');
+      resetClass();
+      slideOut();
+
     default:
       $('.summary div.p_t').show();
       resetClass();

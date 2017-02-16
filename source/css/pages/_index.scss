@@ -64,6 +64,17 @@ body#index {
         }
       }
     }
+    &.nav-visible {
+      & > span.cd-icon {
+        transform: translate(-50%, -50%);
+        &:before {
+          transform: translate(5px, -3px) rotate(45deg) scaleX(0.5);
+        }
+        &:after {
+          transform: translate(5px, 3px) rotate(-45deg) scaleX(0.5);
+        }
+      }
+    }
   }
   & > div.container {
     & > nav {
