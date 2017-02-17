@@ -8,33 +8,41 @@ const config = {
   },
 
   resolve: {
-    root: path.join(__dirname, 'source/js'),
+    modules: [
+      path.resolve(__dirname, 'source/js'),
+      'node_modules',
+    ],
   },
 
   output: {
-    path: path.join(__dirname, '.tmp/dist'),
+    path: path.resolve(__dirname, '.tmp/dist'),
     filename: '[name]',
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components|\.tmp|vendor)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015'],
-        },
+        use: ['babel-loader'],
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', `css!sass?sourceMap&includePaths[]=${path.join(__dirname, '/node_modules')}`),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'sass-loader',
+          ],
+        }),
       },
     ],
   },
 
   plugins: [
-    new ExtractTextPlugin('css/styles.css'),
+    new ExtractTextPlugin({
+      filename: 'css/styles.css',
+    }),
   ],
 };
 
