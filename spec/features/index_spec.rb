@@ -20,14 +20,14 @@ describe 'index', type: :feature do
   it 'has nav .summary ul li a classes' do
     expect(page).to have_selector 'body#index > div.container > nav > ul.summary > li.goal > a'
     expect(page).to have_selector 'body#index > div.container > nav > ul.summary > li.activities > a'
-    expect(page).to have_selector 'body#index > div.container > nav > ul.summary > li.line_at > a'
+    expect(page).to have_selector 'body#index > div.container > nav > ul.summary > li.disaster > a'
     expect(page).to have_selector 'body#index > div.container > nav > ul.summary > li.network > a'
   end
 
   it 'has correct a href hash' do
     expect(page).to have_selector 'ul.summary > li.goal > a[href="#goal"]'
     expect(page).to have_selector 'ul.summary > li.activities > a[href="#activities"]'
-    expect(page).to have_selector 'ul.summary > li.line_at > a[href="#line_at"]'
+    expect(page).to have_selector 'ul.summary > li.disaster > a[href="#disaster"]'
     expect(page).to have_selector 'ul.summary > li.network > a[href="#network"]'
   end
 
@@ -47,11 +47,11 @@ describe 'index', type: :feature do
     end
   end
 
-  it 'has a.line_at div.p_t' do
-    expect(page).to have_selector 'ul.summary > li.line_at > a[href="#line_at"]'
-    within 'nav > ul.summary > li.line_at > a > div.p_t' do
-      expect(page).to have_selector 'h1', text: '『岩手アレルギー支援情報』 LINE@について'
-      expect(page).to have_selector 'p', text: '災害時の情報発信について'
+  it 'has a.disaster div.p_t' do
+    expect(page).to have_selector 'ul.summary > li.disaster > a[href="#disaster"]'
+    within 'nav > ul.summary > li.disaster > a > div.p_t' do
+      expect(page).to have_selector 'h1', text: '災害時の情報発信について'
+      expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について'
     end
   end
 
@@ -71,7 +71,7 @@ describe 'index', type: :feature do
   it 'has invisible article section' do
     expect(page).to have_selector 'main[role=main] > article > ul.contents > li.goal > section', visible:false
     expect(page).to have_selector 'main[role=main] > article > ul.contents > li.activities > section', visible:false
-    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.line_at > section', visible:false
+    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.disaster > section', visible:false
     expect(page).to have_selector 'main[role=main] > article > ul.contents > li.network > section', visible:false
   end
 
@@ -101,14 +101,15 @@ describe 'index', type: :feature do
     end
   end
 
-  it 'has the article line_at section' do
-    within 'main[role=main] > article > ul.contents > li.line_at > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '『岩手アレルギー支援情報』LINE@について', visible:false
-      expect(page).to have_selector 'p', text: '災害時の情報発信について', visible:false
+  it 'has the article disaster section' do
+    within 'main[role=main] > article > ul.contents > li.disaster > div.preview', visible: false do
+      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible:false
+      expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について', visible:false
     end
 
-    within 'main[role=main] > article > ul.contents > li.line_at > section', visible: false do
-      expect(page).to have_selector 'h1', text: '『岩手アレルギー支援情報』LINE@について', visible:false
+    within 'main[role=main] > article > ul.contents > li.disaster > section', visible: false do
+      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible:false
+      expect(page).to have_selector 'h2', text: '『岩手アレルギー支援情報』 LINE@について', visible:false
       expect(page).to have_selector 'ul li', visible:false
     end
   end
@@ -124,6 +125,13 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'div > div.url', visible:false
       expect(page).to have_selector 'div > div.mail', visible:false
     end
+  end
+
+
+  it 'replace #line_at .line_at to #disaster .disaster' do
+    expect(page).not_to have_selector 'ul.summary > li.line_at'
+    expect(page).not_to have_selector 'ul.summary > li.line_at > a[href="#line_at"]'
+    expect(page).not_to have_selector 'main[role=main] > article > ul.contents > li.line_at'
   end
 
 end

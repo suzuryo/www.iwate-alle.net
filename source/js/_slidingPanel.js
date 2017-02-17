@@ -30,11 +30,11 @@ const test1 = (e) => {
       $('.contents > li.activities').addClass('selected', 'content-visible');
       $('a.nav-trigger').addClass('project-open');
       break;
-    case 'line_at':
-      $('.summary li.line_at div.p_t').hide();
+    case 'disaster':
+      $('.summary li.disaster div.p_t').hide();
       resetClass();
       slideOut();
-      $('.contents > li.line_at').addClass('selected', 'content-visible');
+      $('.contents > li.disaster').addClass('selected', 'content-visible');
       $('a.nav-trigger').addClass('project-open');
       break;
     case 'network':
