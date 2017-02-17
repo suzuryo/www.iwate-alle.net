@@ -78,6 +78,7 @@ body#index {
     }
   }
   & > div.container {
+    position: relative;
     & > nav {
       & > ul.summary {
         position: relative;
