@@ -127,6 +127,9 @@ describe 'index', type: :feature do
     end
   end
 
+  it 'has scroll button' do
+    expect(page).to have_selector 'div.container > button.scroll', visible: false
+  end
 
   it 'replace #line_at .line_at to #disaster .disaster' do
     expect(page).not_to have_selector 'ul.summary > li.line_at'

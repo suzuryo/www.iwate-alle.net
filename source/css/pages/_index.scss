@@ -83,6 +83,8 @@ body#index {
   }
   & > div.container {
     position: relative;
+    z-index:2;
+    overflow-x:hidden;
     & > nav {
       & > ul.summary {
         position: relative;
@@ -411,6 +413,34 @@ body#index {
         }
       }
     }
+    &.project-open {
+      & > button.scroll {
+        visibility: visible;
+        transform: translateX(-50%) scale(1);
+        transition: transform 0.4s 0s, visibility 0s 0s;
+        animation: cd-translate 1.2s 0.8s;
+        animation-iteration-count: 2;
+      }
+    }
+    button.scroll {
+      display: block;
+      position: absolute;
+      z-index:2;
+      bottom:30px;
+      left:50%;
+      width:44px;
+      height:44px;
+      cursor:pointer;
+      border:none;
+      background:url(/img/icon-arrow-down.svg) no-repeat center center;
+      visibility: hidden;
+      transform: translateX(-50%) scale(0);
+      transition: transform 0.3s 0s, visibility 0s 0.3s;
+      color:transparent;
+      text-indent:100%;
+      overflow:hidden;
+      white-space:nowrap;
+    }
   }
   & > nav#primary-nav {
     position: absolute;
@@ -455,3 +485,16 @@ body#index {
     }
   }
 }
+
+@keyframes cd-translate {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(10px) translateX(-50%) scale(1);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
