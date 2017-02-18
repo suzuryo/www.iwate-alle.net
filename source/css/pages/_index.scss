@@ -75,7 +75,7 @@ body#index {
           transform: translate(5px, 3px) rotate(-45deg) scaleX(0.5);
         }
       }
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: $large-screen) {
         & > span.cd-icon {
           transform: translate(-50%, -50%) rotate(-90deg);
           &:before {
@@ -176,7 +176,7 @@ body#index {
               }
             }
           }
-          @media only screen and (min-width: 1024px) {
+          @media only screen and (min-width: $large-screen) {
             display: inline-block;
             height: 100%;
             width: 25%;
@@ -341,7 +341,7 @@ body#index {
                 }
               }
             }
-            @media only screen and (min-width: 1024px) {
+            @media only screen and (min-width: $large-screen) {
               & > div.preview {
                 & > div.p_t {
                   width:25%;
@@ -454,7 +454,7 @@ body#index {
           &:hover {
             background-color: #a8ae7e;
           }
-          @media only screen and (min-width: 1024px) {
+          @media only screen and (min-width: $large-screen) {
             font-size: 2rem;
           }
         }
