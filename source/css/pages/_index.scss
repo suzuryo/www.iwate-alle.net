@@ -269,6 +269,7 @@ body#index {
             & > section {
               display: none;
               min-height: 100vh;
+              background-color: #fff;
             }
             &.goal {
               & > div.preview {
@@ -334,6 +335,9 @@ body#index {
                   & > div.p_t {
                   }
                 }
+              }
+              & > section {
+                display: block;
               }
             }
             @media only screen and (min-width: $large-screen) {
@@ -495,6 +499,38 @@ body#index {
   }
   100% {
     transform: translateX(-50%) scale(1);
+  }
+}
+
+// contents
+$pc-grid: (
+  gutter: 0rem,
+  media: $large-screen,
+);
+
+ul.contents {
+  & > li {
+    & > section {
+      padding-top: 3rem;
+      @include grid-container;
+      @include grid-visual;
+      & > div:first-child {
+        background-color: #fcc;
+        @include grid-column;
+        @include grid-media($pc-grid) {
+          @include grid-column(10);
+          @include grid-push(1);
+        }
+      }
+      & > div.contents-goal {
+      }
+      & > div.contents-activities {
+      }
+      & > div.contents-disaster {
+      }
+      & > div.contents-network {
+      }
+    }
   }
 }
 

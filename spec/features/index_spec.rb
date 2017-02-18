@@ -81,7 +81,7 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'p', text: '主な活動内容を紹介します', visible:false
     end
 
-    within 'main[role=main] > article > ul.contents > li.goal > section', visible: false do
+    within 'main[role=main] > article > ul.contents > li.goal > section > div.contents-goal', visible: false do
       expect(page).to have_selector 'h1', text: '主な活動内容', visible:false
       expect(page).to have_selector 'dl dt', visible:false
       expect(page).to have_selector 'dl dd', visible:false
@@ -94,7 +94,7 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'p', text: '企画中の活動を紹介します', visible:false
     end
 
-    within 'main[role=main] > article > ul.contents > li.activities > section', visible: false do
+    within 'main[role=main] > article > ul.contents > li.activities > section > div.contents-activities', visible: false do
       expect(page).to have_selector 'h1', text: '企画中の活動', visible:false
       expect(page).to have_selector 'dl dt', visible:false
       expect(page).to have_selector 'dl dd', visible:false
@@ -107,7 +107,7 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について', visible:false
     end
 
-    within 'main[role=main] > article > ul.contents > li.disaster > section', visible: false do
+    within 'main[role=main] > article > ul.contents > li.disaster > section > div.contents-disaster', visible: false do
       expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible:false
       expect(page).to have_selector 'h2', text: '『岩手アレルギー支援情報』 LINE@について', visible:false
       expect(page).to have_selector 'ul li', visible:false
@@ -120,7 +120,7 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'p', text: '岩手県内の親の会のご紹介', visible:false
     end
 
-    within 'main[role=main] > article > ul.contents > li.network > section', visible: false do
+    within 'main[role=main] > article > ul.contents > li.network > section > div.contents-network', visible: false do
       expect(page).to have_selector 'div > h1', visible:false
       expect(page).to have_selector 'div > div.url', visible:false
       expect(page).to have_selector 'div > div.mail', visible:false
