@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'slim'
 require 'middleman-autoprefixer'
 
 set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
-set :slim, {pretty:true, sort_attrs:true, format: :html}
+set :slim, pretty: true, sort_attrs: true, format: :html
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -23,7 +25,7 @@ activate :external_pipeline,
          latency: 1
 
 configure :build do
-  set :slim, {pretty:false, sort_attrs:true, format: :html}
+  set :slim, pretty: false, sort_attrs: true, format: :html
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash

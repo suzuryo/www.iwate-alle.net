@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'index', type: :feature do
@@ -63,67 +65,66 @@ describe 'index', type: :feature do
     end
   end
 
-
   it 'has main article' do
     expect(page).to have_selector 'body#index > div.container > main[role=main] > article'
   end
 
   it 'has invisible article section' do
-    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.goal > section', visible:false
-    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.activities > section', visible:false
-    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.disaster > section', visible:false
-    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.network > section', visible:false
+    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.goal > section', visible: false
+    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.activities > section', visible: false
+    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.disaster > section', visible: false
+    expect(page).to have_selector 'main[role=main] > article > ul.contents > li.network > section', visible: false
   end
 
   it 'has the article goal section' do
     within 'main[role=main] > article > ul.contents > li.goal > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: 'いわてアレルギーの会', visible:false
-      expect(page).to have_selector 'p', text: '主な活動内容を紹介します', visible:false
+      expect(page).to have_selector 'h1', text: 'いわてアレルギーの会', visible: false
+      expect(page).to have_selector 'p', text: '主な活動内容を紹介します', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.goal > section > div.contents-goal', visible: false do
-      expect(page).to have_selector 'h1', text: '主な活動内容', visible:false
-      expect(page).to have_selector 'dl dt', visible:false
-      expect(page).to have_selector 'dl dd', visible:false
+      expect(page).to have_selector 'h1', text: '主な活動内容', visible: false
+      expect(page).to have_selector 'dl dt', visible: false
+      expect(page).to have_selector 'dl dd', visible: false
     end
   end
 
   it 'has the article activities section' do
     within 'main[role=main] > article > ul.contents > li.activities > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '企画中の活動', visible:false
-      expect(page).to have_selector 'p', text: '企画中の活動を紹介します', visible:false
+      expect(page).to have_selector 'h1', text: '企画中の活動', visible: false
+      expect(page).to have_selector 'p', text: '企画中の活動を紹介します', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.activities > section > div.contents-activities', visible: false do
-      expect(page).to have_selector 'h1', text: '企画中の活動', visible:false
-      expect(page).to have_selector 'dl dt', visible:false
-      expect(page).to have_selector 'dl dd', visible:false
+      expect(page).to have_selector 'h1', text: '企画中の活動', visible: false
+      expect(page).to have_selector 'dl dt', visible: false
+      expect(page).to have_selector 'dl dd', visible: false
     end
   end
 
   it 'has the article disaster section' do
     within 'main[role=main] > article > ul.contents > li.disaster > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible:false
-      expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について', visible:false
+      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible: false
+      expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.disaster > section > div.contents-disaster', visible: false do
-      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible:false
-      expect(page).to have_selector 'h2', text: '『岩手アレルギー支援情報』 LINE@について', visible:false
-      expect(page).to have_selector 'ul li', visible:false
+      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible: false
+      expect(page).to have_selector 'h2', text: '『岩手アレルギー支援情報』 LINE@について', visible: false
+      expect(page).to have_selector 'ul li', visible: false
     end
   end
 
   it 'has the article network section' do
     within 'main[role=main] > article > ul.contents > li.network > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '親の会ネットワーク', visible:false
-      expect(page).to have_selector 'p', text: '岩手県内の親の会のご紹介', visible:false
+      expect(page).to have_selector 'h1', text: '親の会ネットワーク', visible: false
+      expect(page).to have_selector 'p', text: '岩手県内の親の会のご紹介', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.network > section > div.contents-network', visible: false do
-      expect(page).to have_selector 'div > h1', visible:false
-      expect(page).to have_selector 'div > div.url', visible:false
-      expect(page).to have_selector 'div > div.mail', visible:false
+      expect(page).to have_selector 'div > h1', visible: false
+      expect(page).to have_selector 'div > div.url', visible: false
+      expect(page).to have_selector 'div > div.mail', visible: false
     end
   end
 
@@ -136,5 +137,4 @@ describe 'index', type: :feature do
     expect(page).not_to have_selector 'ul.summary > li.line_at > a[href="#line_at"]'
     expect(page).not_to have_selector 'main[role=main] > article > ul.contents > li.line_at'
   end
-
 end

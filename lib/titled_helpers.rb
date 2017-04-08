@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# set title with current_page.date
 module TitledHelpers
   def titled
     title = '岩手県内の各地域のアレルギー患者の親の会「いわてアレルギーの会」'
