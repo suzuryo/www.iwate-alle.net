@@ -12,5 +12,6 @@ group :development do
   gem 'poltergeist'
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'rubocop', require: false
   gem 'ruby_gntp'
 end
