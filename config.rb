@@ -1,16 +1,21 @@
+# frozen_string_literal: true
+
 require 'slim'
+require 'middleman-autoprefixer'
 
 set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
-set :slim, {pretty:true, sort_attrs:true, format: :html}
+set :slim, pretty: true, sort_attrs: true, format: :html
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+page '/', layout: 'layout-index'
+
 configure :development do
-  activate :livereload
+  activate :livereload, host: '10.1.17.17'
 end
 
 activate :external_pipeline,
@@ -20,11 +25,14 @@ activate :external_pipeline,
          latency: 1
 
 configure :build do
-  set :slim, {pretty:false, sort_attrs:true, format: :html}
+  set :slim, pretty: false, sort_attrs: true, format: :html
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash
   activate :gzip
+  activate :autoprefixer do
+    config.browsers = ['defaults']
+  end
 end
 
 config[:host] = 'http://www.iwate-alle.net'
