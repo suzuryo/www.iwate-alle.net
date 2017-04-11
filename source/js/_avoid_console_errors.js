@@ -1,24 +1,20 @@
 // Avoid `console` errors in browsers that lack a console.
-(function() {
-  var method;
-  var noop = function () {};
-  var methods = [
+(() => {
+  const noop = () => {};
+  const methods = [
     'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
     'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
     'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-    'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+    'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn',
   ];
-  var length = methods.length;
-  var console = (window.console = window.console || {});
 
-  while (length--) {
-    method = methods[length];
+  const console = (window.console = window.console || {});
 
-    // Only stub undefined methods.
-    if (!console[method]) {
-      console[method] = noop;
+  methods.forEach((v) => {
+    if (!console[v]) {
+      console[v] = noop;
     }
-  }
-}());
+  });
+}).call();
 
-module.exports = {avoid_console_errors: 'avoid_console_errors'};
+module.exports = { avoid_console_errors: 'avoid_console_errors' };

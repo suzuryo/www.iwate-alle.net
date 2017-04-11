@@ -1,0 +1,9 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
+  Exclude:
+    - bin/*
+    - node_modules/**/*
+    - tmp/*
