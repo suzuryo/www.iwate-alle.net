@@ -13,15 +13,14 @@ const slideOut = () => {
   $('.summary > li').addClass('slide_out');
 };
 
-const test1 = (e) => {
-  console.log(e);
+const main = (e) => {
   const hs = _.replace(e.path, /^\/#|^\/$/, '');
   switch (hs) {
     case 'goal':
       $('.summary li.goal div.p_t').hide();
       resetClass();
       slideOut();
-        $('ul.contents > li.goal').addClass('selected', 'content-visible');
+      $('ul.contents > li.goal').addClass('selected', 'content-visible');
       $('a.nav-trigger').addClass('project-open');
       $('div.container').addClass('project-open');
       break;
@@ -53,7 +52,7 @@ const test1 = (e) => {
       $('a.nav-trigger').addClass('nav-visible');
       resetClass();
       slideOut();
-
+      break;
     default:
       $('.summary div.p_t').show();
       resetClass();
@@ -61,15 +60,14 @@ const test1 = (e) => {
   }
 };
 
-page('*', test1);
-page({hashbang:true});
+page('*', main);
+page({ hashbang: true });
 
 $(() => {
   $('a.nav-trigger').on('click', () => {
     if (!$('a.nav-trigger').hasClass('project-open')) {
       $('a.nav-trigger').toggleClass('nav-visible');
       $('#primary-nav').toggleClass('nav-visible');
-    } else {
     }
   });
 
@@ -77,10 +75,8 @@ $(() => {
     if (!$('a.nav-trigger').hasClass('project-open')) {
       $('a.nav-trigger').toggleClass('nav-visible');
       $('#primary-nav').toggleClass('nav-visible');
-    } else {
     }
   });
-
 });
 
 module.exports = {

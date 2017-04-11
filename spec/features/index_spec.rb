@@ -52,16 +52,16 @@ describe 'index', type: :feature do
   it 'has a.disaster div.p_t' do
     expect(page).to have_selector 'ul.summary > li.disaster > a[href="#disaster"]'
     within 'nav > ul.summary > li.disaster > a > div.p_t' do
-      expect(page).to have_selector 'h1', text: '災害時の情報発信について'
-      expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について'
+      expect(page).to have_selector 'h1', text: '災害発生時のアレルギー対応支援'
+      expect(page).to have_selector 'p', text: '災害に備えてアレルギー支援体制を 整えています'
     end
   end
 
   it 'has a.network div.p_t' do
     expect(page).to have_selector 'ul.summary > li.network > a[href="#network"]'
     within 'nav > ul.summary > li.network > a > div.p_t' do
-      expect(page).to have_selector 'h1', text: '親の会ネットワーク'
-      expect(page).to have_selector 'p', text: '岩手県内の親の会のご紹介'
+      expect(page).to have_selector 'h1', text: 'お役立ち情報'
+      expect(page).to have_selector 'p', text: '岩手県内のアレルギー情報について'
     end
   end
 
@@ -83,9 +83,21 @@ describe 'index', type: :feature do
     end
 
     within 'main[role=main] > article > ul.contents > li.goal > section > div.contents-goal', visible: false do
+      expect(page).to have_selector 'h1', text: '活動目的', visible: false
+      expect(page).to have_selector 'h1', text: '発足の経緯', visible: false
+      expect(page).to have_selector 'h1', text: 'いわてアレルギーの会とは', visible: false
       expect(page).to have_selector 'h1', text: '主な活動内容', visible: false
-      expect(page).to have_selector 'dl dt', visible: false
-      expect(page).to have_selector 'dl dd', visible: false
+      expect(page).to have_selector 'h1', text: '連絡先', visible: false
+      expect(page).to have_selector 'h2', text: 'いわてアレルギーの会', visible: false
+    end
+
+    within 'div.contents-goal address', visible: false do
+      expect(page).to have_selector 'dt', text: 'MAIL', visible: false
+      # expect(page).to have_selector 'dd', text: 'mail@iwate-alle.net', visible: false
+      expect(page).to have_selector 'dt', text: 'URL', visible: false
+      expect(page).to have_selector 'dd', text: 'http://www.iwate-alle.net', visible: false
+      expect(page).to have_selector 'dt', text: 'Facebook', visible: false
+      expect(page).to have_selector 'dd', text: 'https://www.facebook.com/allergy.iwate/', visible: false
     end
   end
 
@@ -96,35 +108,68 @@ describe 'index', type: :feature do
     end
 
     within 'main[role=main] > article > ul.contents > li.activities > section > div.contents-activities', visible: false do
-      expect(page).to have_selector 'h1', text: '企画中の活動', visible: false
-      expect(page).to have_selector 'dl dt', visible: false
-      expect(page).to have_selector 'dl dd', visible: false
+      expect(page).to have_selector 'h1', text: 'ALサインプレートの普及啓発', visible: false
+      expect(page).to have_selector 'dl dt', text: '目的', visible: false
+      expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
+
+      expect(page).to have_selector 'h1', text: '食物アレルギー勉強会', visible: false
+      expect(page).to have_selector 'dl dt', text: '目的', visible: false
+      expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
+
+      expect(page).to have_selector 'h1', text: 'アレルギー支援体制の周知', visible: false
+      expect(page).to have_selector 'dl dt', text: '目的', visible: false
+      expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
+
     end
   end
 
   it 'has the article disaster section' do
     within 'main[role=main] > article > ul.contents > li.disaster > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible: false
-      expect(page).to have_selector 'p', text: '『岩手アレルギー支援情報』 LINE@について', visible: false
+      expect(page).to have_selector 'h1', text: '災害発生時のアレルギー対応支援', visible: false
+      expect(page).to have_selector 'p', text: '災害に備えてアレルギー支援体制を整えています', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.disaster > section > div.contents-disaster', visible: false do
-      expect(page).to have_selector 'h1', text: '災害時の情報発信について', visible: false
-      expect(page).to have_selector 'h2', text: '『岩手アレルギー支援情報』 LINE@について', visible: false
-      expect(page).to have_selector 'ul li', visible: false
+      expect(page).to have_selector 'h1', text: '災害時の情報発信', visible: false
+      expect(page).to have_selector 'h1', text: '登録方法', visible: false
+      expect(page).to have_selector 'h1', text: '発信する情報', visible: false
+      expect(page).to have_selector 'h1', text: '支援物資', visible: false
+      expect(page).to have_selector 'h1', text: '岩手のアレルギー対応支援体制', visible: false
+
     end
   end
 
   it 'has the article network section' do
     within 'main[role=main] > article > ul.contents > li.network > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '親の会ネットワーク', visible: false
-      expect(page).to have_selector 'p', text: '岩手県内の親の会のご紹介', visible: false
+      expect(page).to have_selector 'h1', text: 'お役立ち情報', visible: false
+      expect(page).to have_selector 'p', text: '岩手県内のアレルギー情報について', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.network > section > div.contents-network', visible: false do
-      expect(page).to have_selector 'div > h1', visible: false
-      expect(page).to have_selector 'div > div.url', visible: false
-      expect(page).to have_selector 'div > div.mail', visible: false
+      expect(page).to have_selector 'h1', text: '岩手県内の親の会', visible: false
+      expect(page).to have_selector 'dl dt', text: '盛岡アレルギーっ子サークル「ミルク」', visible: false
+      expect(page).to have_selector 'dl dd', text: 'http://allergy.morioka.co', visible: false
+      expect(page).to have_selector 'dl dt', text: 'アレルギーケア.くじ', visible: false
+      expect(page).to have_selector 'dl dd', text: 'http://allecare.jimdo.com', visible: false
+      expect(page).to have_selector 'dl dt', text: 'アレルギーフレンズ☆おうしゅう', visible: false
+      expect(page).to have_selector 'dl dd', text: 'http://ameblo.jp/friends-ooo/', visible: false
+      expect(page).to have_selector 'dl dt', text: 'アレルっ子かまいし', visible: false
+      expect(page).to have_selector 'dl dd', text: 'http://ameblo.jp/alle-kamaishi/', visible: false
+      expect(page).to have_selector 'dl dt', text: '大船渡アレルギーサポートゆずっ子', visible: false
+      expect(page).to have_selector 'dl dd', text: 'http://ameblo.jp/ofunato-yuzu', visible: false
+
+      expect(page).to have_selector 'h1', text: 'ALサインプレート配布施設', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: 'もりおかこども病院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: '岩手医科大学病院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: '県立久慈病院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: 'ちだ医院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: '県立大船渡病院', visible: false
+
+      expect(page).to have_selector 'h1', text: '負荷試験実施施設', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: 'もりおかこども病院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: '岩手医科大学病院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: '県立久慈病院', visible: false
+      expect(page).to have_selector 'dl dd ul li', text: '県立大船渡病院', visible: false
     end
   end
 

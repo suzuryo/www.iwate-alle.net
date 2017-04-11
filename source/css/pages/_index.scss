@@ -508,21 +508,66 @@ $pc-grid: (
   media: $large-screen,
 );
 
+$theme_color1: #6fa583;
+$theme_color2: #9da085;
+$theme_color3: #a19782;
+$theme_color4: #8d694e;
+
+@mixin h1box($theme_color:#7ebb95) {
+  h1{
+    color: $theme_color;
+    font-size: 18px;
+    position: relative;
+    padding: 10px 0 10px 38px;
+    margin: 80px 0 20px 0;
+    border-bottom: 1px solid $theme_color;
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      margin: auto;
+    }
+    &:before{
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 14px;
+      background: $theme_color;
+      transform: rotate(50deg);
+    }
+    &:after{
+      width: 8px;
+      height: 8px;
+      top: 18px;
+      left: 6px;
+      background: $theme_color;
+      transform: rotate(20deg);
+    }
+  }
+}
+
 ul.contents {
   & > li {
     & > section {
-      padding-top: 3rem;
+      dl {
+        dt {
+          margin-bottom:0.5em;
+        }
+        dd {
+          margin-left:2em;
+          margin-bottom:1em;
+        }
+      }
       @include grid-container;
-      //@include grid-visual;
       & > div:first-child {
         //background-color: #fcc;
         @include grid-column;
         @include grid-media($pc-grid) {
-          @include grid-column(8);
-          @include grid-push(2);
+          @include grid-column(6);
+          @include grid-push(3);
         }
       }
       & > div.contents-goal {
+        @include h1box($theme_color1);
         ul.omonakatsudou {
           li {
             list-style-type: disc;
@@ -530,17 +575,12 @@ ul.contents {
             margin-bottom:1em;
           }
         }
-        address {
-          dt {}
-          dd {
-            margin-left:2em;
-            margin-bottom:1em;
-          }
-        }
       }
       & > div.contents-activities {
+        @include h1box($theme_color2);
       }
       & > div.contents-disaster {
+        @include h1box($theme_color3);
         p.add_lineat {
           a {
             height:36px;
@@ -551,30 +591,17 @@ ul.contents {
         }
       }
       & > div.contents-network {
+        @include h1box($theme_color4);
         div.updated {
           font-size:13px;
           font-weight:normal;
           text-align: right;
         }
-        dl.oyanokai {
-          dd {
-            margin-left:2em;
-            margin-bottom:1em;
-          }
-        }
-        dl.alsign {
-          dd {
-            margin-left:2em;
-            margin-bottom:1em;
-          }
-        }
-        dl.fukashiken {
-          dd {
-            margin-left:2em;
-            margin-bottom:1em;
-          }
-        }
       }
     }
   }
 }
+
+
+
+
