@@ -108,9 +108,7 @@ describe 'index', type: :feature do
     end
 
     within 'main[role=main] > article > ul.contents > li.activities > section > div.contents-activities', visible: false do
-      expect(page).to have_selector 'h1', text: 'ALサインプレートの普及啓発', visible: false
-      expect(page).to have_selector 'dl dt', text: '目的', visible: false
-      expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
+      expect(page).not_to have_selector 'h1', text: 'ALサインプレートの普及啓発', visible: false
 
       expect(page).to have_selector 'h1', text: '食物アレルギー勉強会', visible: false
       expect(page).to have_selector 'dl dt', text: '目的', visible: false
@@ -158,12 +156,7 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'dl dt', text: '大船渡アレルギーサポートゆずっ子', visible: false
       expect(page).to have_selector 'dl dd', text: 'http://ameblo.jp/ofunato-yuzu', visible: false
 
-      expect(page).to have_selector 'h1', text: 'ALサインプレート配布施設', visible: false
-      expect(page).to have_selector 'dl dd ul li', text: 'もりおかこども病院', visible: false
-      expect(page).to have_selector 'dl dd ul li', text: '岩手医科大学病院', visible: false
-      expect(page).to have_selector 'dl dd ul li', text: '県立久慈病院', visible: false
-      expect(page).to have_selector 'dl dd ul li', text: 'ちだ医院', visible: false
-      expect(page).to have_selector 'dl dd ul li', text: '県立大船渡病院', visible: false
+      expect(page).not_to have_selector 'h1', text: 'ALサインプレート配布施設', visible: false
 
       expect(page).to have_selector 'h1', text: '負荷試験実施施設', visible: false
       expect(page).to have_selector 'dl dd ul li', text: 'もりおかこども病院', visible: false
