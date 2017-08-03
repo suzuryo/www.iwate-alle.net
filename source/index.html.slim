@@ -101,18 +101,7 @@ div.container
                 dl
                   dt
                     | MAIL
-                  dd
-                    javascript:
-                      function c(t) {
-                        let s = '', m = '';
-                        for (let i = 0; i < t.length; i++) {
-                          m = t.charCodeAt(i);
-                          s += String.fromCharCode(m + 1);
-                        }
-                        return s;
-                      }
-                      let es = c(String.fromCharCode(108, 96, 104, 107, 63, 104, 118, 96, 115, 100) + String.fromCharCode(44, 96, 107, 107, 100, 45, 109, 100, 115));
-                      document.write('<a href="mai' + 'lto:' + es + '">' + es + '</a>');
+                  dd.iwate_alle_mail
                   dt
                     | URL
                   dd
@@ -225,18 +214,9 @@ div.container
                 | ご協力よろしくお願い致します。
               p
                 | いわてアレルギーの会
-                | MAIL
-                javascript:
-                  function c(t) {
-                    let s = '', m = '';
-                    for (let i = 0; i < t.length; i++) {
-                      m = t.charCodeAt(i);
-                      s += String.fromCharCode(m + 1);
-                    }
-                    return s;
-                  }
-                  let es = c(String.fromCharCode(108, 96, 104, 107, 63, 104, 118, 96, 115, 100) + String.fromCharCode(44, 96, 107, 107, 100, 45, 109, 100, 115));
-                  document.write('<a href="mai' + 'lto:' + es + '">' + es + '</a>');
+                br
+                | MAIL:　
+                span.iwate_alle_mail
               p
                 img src='' alt='支援物資の様子'
 
