@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   entry: {
@@ -28,7 +28,7 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: MiniCssExtractPlugin.loader({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader',
@@ -40,7 +40,7 @@ const config = {
   },
 
   plugins: [
-    new MiniCssExtractPlugin({
+    new ExtractTextPlugin({
       filename: 'css/styles.css',
     }),
   ],
