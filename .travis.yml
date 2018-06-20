@@ -2,6 +2,7 @@ language: ruby
 script: bundle exec middleman build
 before_script:
   - bundle install
+  - npm install
   - npm install -g firebase-tools
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
