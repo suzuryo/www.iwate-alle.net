@@ -14,6 +14,10 @@ page '/*.txt', layout: false
 
 page '/', layout: 'layout-index'
 
+configure :development do
+  activate :livereload
+end
+
 activate :external_pipeline,
          name: :webpack,
          command: build? ? 'npx webpack --bail -p' : 'npx webpack --watch -d --color',
