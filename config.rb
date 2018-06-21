@@ -15,12 +15,12 @@ page '/*.txt', layout: false
 page '/', layout: 'layout-index'
 
 configure :development do
-  activate :livereload, host: '10.1.17.17'
+  activate :livereload
 end
 
 activate :external_pipeline,
          name: :webpack,
-         command: build? ? './node_modules/webpack/bin/webpack.js --bail -p' : './node_modules/webpack/bin/webpack.js --watch -d --color',
+         command: build? ? 'npx webpack --bail -p' : 'npx webpack --watch -d --color',
          source: '.tmp/dist',
          latency: 1
 
