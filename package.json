@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "mocha --compilers js:babel-register --require ./test/test_helper.js --recursive",
+    "test": "mocha --require ./test/test_helper.js --recursive",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
