@@ -1,0 +1,11 @@
+language: ruby
+script: bundle exec middleman build
+before_script:
+  - bundle install
+  - yarn install
+  - yarn global add firebase-tools
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
+notifications:
+  slack:
+    secure: GyfqWRPP5gppLPsuzuOr35Z08KdGAEtWSoRwN6lILkvKVtBq7zeJAQzX3Bppu45vL7bj6L5rvN5aA0uTgjs3FpcMRylOpTkD/8w27kkbrxfckhpddM5FB+ToBgNf2Y6ZOWUanYiMEuM21rr2KbsPhcSUHtwjzVXzd5P/KPmgKBJRXwdNSTBlqvcS/aiI0GKn9ojeS8MOGg96gVX5EAfKtNlyxmwv3Xy7BYsH7JQPvcLIwpHAJUHkFknRfMjriDaN9Gt1d2b8GabbEFbsTj06fp+ExjgMgXQbOpXnedHubXBU+eXDJgHPF3PlIUm5tFtnpTPoecRekylGjyS8/UScZa6dQ49q1zJFVnRG1gZ8c6hoyvDFGB0AHMwp6Or6gwdxeRnyt82bRnWUP43IEV1OJKIpJDT+Yq6cMdcNe0cWecY/oMiqaSDG25UJdSV94ep3qScdGTeRjV4UR0lWfZtlEyc87kvUy8jNh3TOIsbB8NfaA70cF/FSYj2kDVXagJn6OX0maxLjsLwd3S8Qj6hs0HRqUZmKwHwlU5ALLPIsq6jrgSeJNmXBXTIUYOkLsu6VTCGI76qoPzR1dHSbOVVzEeedLY91rmcx3NA1HXkRLgwXv0rG2dQfoeX1y6FsPhyss0uLXW64wNDto0N/Szjv8FR9dGtgzWk+AClOprbmoI4=

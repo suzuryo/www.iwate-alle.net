@@ -8,6 +8,7 @@ gem 'middleman-livereload'
 gem 'slim'
 
 group :development do
+  gem 'puma'
   gem 'capybara'
   gem 'guard'
   gem 'guard-rspec', require: false
