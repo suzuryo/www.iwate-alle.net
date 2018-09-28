@@ -177,4 +177,9 @@ describe 'index', type: :feature do
     expect(page).not_to have_selector 'ul.summary > li.line_at > a[href="#line_at"]'
     expect(page).not_to have_selector 'main[role=main] > article > ul.contents > li.line_at'
   end
+
+  it 'have no typo' do
+    expect(page).to have_selector('div.contents-goal p:nth-of-type(4)', text: '分からない', visible: false)
+    expect(page).not_to have_selector('div.contents-goal p:nth-of-type(4)', text: 'わらかない', visible: false)
+  end
 end
