@@ -120,6 +120,12 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'dl dt', text: '目的', visible: false
       expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
 
+      expect(page).to have_selector 'h1', text: '食物アレルギーサインプレートを作成', visible: false
+      expect(page).to have_selector 'dl dt', text: '目的', visible: false
+      expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
+      expect(page).to have_selector 'dl dt', text: 'サインプレートセット内容', visible: false
+      expect(page).to have_selector 'dl dd a[href="https://readyfor.jp/projects/17713"]', text: 'https://readyfor.jp/projects/17713', visible: false
+
     end
   end
 
