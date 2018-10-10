@@ -578,6 +578,10 @@ ul.contents {
       }
       & > div.contents-activities {
         @include h1box($theme_color2);
+        dd ul li {
+          list-style-type: disc;
+          list-style-position: inside;
+        }
       }
       & > div.contents-disaster {
         @include h1box($theme_color3);
