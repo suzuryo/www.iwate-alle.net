@@ -30,7 +30,7 @@ source/js/bundle.js
 
 全ての文章コンテンツは index.html.slim に書かれていて、
 jsやcssによって、複数ページのように見えている。
-レスポンシブデザインでPCやスマホにも対応している。
+レスポンシブデザインでPCやスマホの両方の最適表示に対応している。
 
 index.html.slim は 素のHTML言語ではなく、Slim言語で構造化されて書かれている。
 
@@ -43,8 +43,8 @@ https://github.com/slim-template/slim/blob/master/README.jp.md
 
 ### 最初の4分割のナビゲーション
 
-ページにアクセスして最初に表示される4分割のナビゲーション（PCなら縦に4分割、
-スマホなら横に4分割）は、 index.html.slim の中の 
+ページにアクセスして最初に表示される、画面が4分割されるナビゲーション
+（PCなら縦に4分割、スマホなら横に4分割）は、 index.html.slim の中の 
 
 ```
 div.container
@@ -66,8 +66,8 @@ div.container
 
 ### メインコンテンツ
 
-最初の4分割のナビゲーションで、表示されるコンテンツを選択した後に表示される
-メインコンテンツは、 index.html.slim の中の
+4分割のナビを選択した後に表示さえるメインコンテンツは、
+index.html.slim の中の
 
 ```
 main role='main'
@@ -94,7 +94,7 @@ main role='main'
 
 の部分に該当する。文言など変更可能。
 
-コンテンツのブロックを増やすには
+section の中のコンテンツのブロックを増やすには
 
 ```
 h1
@@ -107,6 +107,8 @@ h1
 ```
 
 などを一つの単位として、コンテンツブロックを増やすことができる。
+
+h1 の部分は自動で見出し的な装飾が適用される。
 
 
 ### ハンバーガーメニュー
@@ -124,13 +126,15 @@ nav#primary-nav
 
 ## デザインの変更
 
+CSSファイルは、SASS言語で書かれている。
+
 index.html.slim に対応するCSSは
 
 ```
-source/css/pages/_styles.scss
+source/css/pages/_index.scss
 ```
 
-に該当する。変更したい場合は、該当するclassやidの欄にcssを書く。
+に該当する。独自に変更したい場合は、該当するclassやidの欄にcssを書く。
 
 
 ## gitによる変更の履歴管理
@@ -138,7 +142,10 @@ source/css/pages/_styles.scss
 全てのソースコードは https://github.com/suzuryo/www.iwate-alle.net にて
 gitによるバージョン管理下にある。
 
+
 ### サイト更新の手順
+
+以下の手順でサイトのコンテンツ更新が完了する。
 
 1. git pull
 2. ソースコードの編集
@@ -147,7 +154,7 @@ gitによるバージョン管理下にある。
 5. Travis CI による自動ビルド
 6. firebase に自動デプロイ
 
-の順で、変更点をgitリポジトリにpushすることでソースコードの更新が完了する。
+変更点をgitリポジトリにpushすることでソースコードの更新が完了する。
 
 git push されると、Travis CI により、自動的にビルドされる。
 エラー無くビルドが完了したら、自動的に firebase に デプロイされる。
@@ -159,8 +166,8 @@ https://travis-ci.org/suzuryo/www.iwate-alle.net
 
 ### github上による直接の編集
 
-本来は、gitクライアントを使って、更新の1-4の手順を行うが、難しい場合は、
-githubのファイル直接編集画面で、簡単に2.3.を実施することができる。
+本来は、gitクライアントと自分のPCの中のエディタを使って書き換えを行うが、
+難しい場合は、githubのファイル直接編集画面で、簡単に2.3.を実施することができる。
 
 参考  
 https://help.github.com/articles/editing-files-in-your-repository/
@@ -170,4 +177,8 @@ https://help.github.com/articles/editing-files-in-your-repository/
 
 自分のPCでmiddlemanを動かして、gitにpushする前に、ソースコードの変更を
 手元で確認することができる。
-PCに詳しくないと難しいかもしれないけど、あとで書く。
+
+
+## FAQ
+
+分からない手順などあれば、あとで詳しく書く(かも)。
