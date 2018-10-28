@@ -144,6 +144,8 @@ gitによるバージョン管理下にある。
 2. ソースコードの編集
 3. git commit
 4. git push
+5. Travis CI による自動ビルド
+6. firebase に自動デプロイ
 
 の順で、変更点をgitリポジトリにpushすることでソースコードの更新が完了する。
 
@@ -163,3 +165,9 @@ githubのファイル直接編集画面で、簡単に2.3.を実施すること�
 参考  
 https://help.github.com/articles/editing-files-in-your-repository/
 
+
+### ローカルで middleman を動かす
+
+自分のPCでmiddlemanを動かして、gitにpushする前に、ソースコードの変更を
+手元で確認することができる。
+PCに詳しくないと難しいかもしれないけど、あとで書く。
