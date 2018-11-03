@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'index', type: :feature do
+describe 'index', type: :feature, js: true do
   before do
     visit '/'
   end
@@ -44,8 +44,8 @@ describe 'index', type: :feature do
   it 'has a.activities div.p_t' do
     expect(page).to have_selector 'ul.summary > li.activities > a[href="#activities"]'
     within 'nav > ul.summary > li.activities > a > div.p_t' do
-      expect(page).to have_selector 'h1', text: '企画中の活動'
-      expect(page).to have_selector 'p', text: '企画中の活動を紹介します'
+      expect(page).to have_selector 'h1', text: '活動内容'
+      expect(page).to have_selector 'p', text: '実施中の活動を紹介します'
     end
   end
 
@@ -105,8 +105,8 @@ describe 'index', type: :feature do
 
   it 'has the article activities section' do
     within 'main[role=main] > article > ul.contents > li.activities > div.preview', visible: false do
-      expect(page).to have_selector 'h1', text: '企画中の活動', visible: false
-      expect(page).to have_selector 'p', text: '企画中の活動を紹介します', visible: false
+      expect(page).to have_selector 'h1', text: '活動内容', visible: false
+      expect(page).to have_selector 'p', text: '実施中の活動を紹介します', visible: false
     end
 
     within 'main[role=main] > article > ul.contents > li.activities > section > div.contents-activities', visible: false do
@@ -125,7 +125,6 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'dl dt', text: '活動内容', visible: false
       expect(page).to have_selector 'dl dt', text: 'サインプレートセット内容', visible: false
       expect(page).to have_selector 'dl dd a[href="https://readyfor.jp/projects/17713"]', text: 'https://readyfor.jp/projects/17713', visible: false
-
     end
   end
 
@@ -141,7 +140,6 @@ describe 'index', type: :feature do
       expect(page).to have_selector 'h1', text: '発信する情報', visible: false
       expect(page).to have_selector 'h1', text: '支援物資', visible: false
       expect(page).to have_selector 'h1', text: '岩手のアレルギー対応支援体制', visible: false
-
     end
   end
 
@@ -176,6 +174,15 @@ describe 'index', type: :feature do
 
   it 'has scroll button' do
     expect(page).to have_selector 'div.container > button.scroll', visible: false
+  end
+
+  it 'has the primary nav' do
+    within 'nav#primary-nav ul', visible: false do
+      expect(page).to have_selector 'li a[href="#goal"]', text: 'いわてアレルギーの会', visible: false
+      expect(page).to have_selector 'li a[href="#activities"]', text: '活動内容', visible: false
+      expect(page).to have_selector 'li a[href="#disaster"]', text: '災害発生時のアレルギー対応支援', visible: false
+      expect(page).to have_selector 'li a[href="#network"]', text: 'お役立ち情報', visible: false
+    end
   end
 
   it 'replace #line_at .line_at to #disaster .disaster' do
