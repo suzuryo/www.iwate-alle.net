@@ -1,5 +1,8 @@
 require 'capybara/rspec'
 require 'capybara/dsl'
+require 'middleman-core'
+require 'middleman-core/rack'
+require 'middleman-livereload'
 require 'selenium-webdriver'
 
 module WaitForAjax
@@ -17,20 +20,29 @@ end
 
 Capybara.register_driver :headless_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu) }
+    chromeOptions: { args: %w(headless disable-gpu window-size=1366,768 no-sandbox incognito disable-extensions) }
   )
   Capybara::Selenium::Driver.new app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities
+    browser: :chrome,
+    desired_capabilities: capabilities
 end
 
 Capybara.configure do |config|
-  config.run_server = false
+  config.run_server = true
+  config.server_port = 14567
   config.default_driver = :headless_chrome
-  config.app_host = 'http://localhost:4567'
+  config.app_host = 'http://0.0.0.0:14567/'
+  config.javascript_driver = :headless_chrome
+
+  middleman_app = ::Middleman::Application.new
+
+  Capybara.app = ::Middleman::Rack.new(middleman_app).to_app do
+    set :root, File.expand_path(File.join(File.dirname(__FILE__), '..'))
+    set :environment, :development
+    set :show_exceptions, false
+  end
 end
 
-Capybara.javascript_driver = :headless_chrome
 
 RSpec.configure do |config|
   config.include Capybara::DSL
