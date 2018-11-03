@@ -2,19 +2,22 @@
 
 source 'https://rubygems.org'
 
-gem 'middleman', '>= 4.0.0'
+gem 'middleman', '>= 4.2'
 gem 'middleman-autoprefixer'
-gem 'middleman-livereload'
+gem 'middleman-livereload', '~> 3.4.6'
 gem 'slim'
 
 group :development do
   gem 'puma'
+  gem 'rubocop', require: false
+end
+
+group :test do
   gem 'capybara'
   gem 'guard'
-  gem 'guard-rspec', require: false
-  gem 'poltergeist'
+  gem 'guard-rspec'
   gem 'rake'
   gem 'rspec'
-  gem 'rubocop', require: false
   gem 'ruby_gntp'
+  gem 'selenium-webdriver'
 end
