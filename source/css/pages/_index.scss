@@ -582,6 +582,10 @@ ul.contents {
           list-style-type: disc;
           list-style-position: inside;
         }
+        dd ol li {
+          list-style-type: decimal;
+          list-style-position: outside;
+        }
       }
       & > div.contents-disaster {
         @include h1box($theme_color3);
