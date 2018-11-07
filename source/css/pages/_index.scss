@@ -578,15 +578,34 @@ ul.contents {
       }
       & > div.contents-activities {
         @include h1box($theme_color2);
-        dd ul li {
-          list-style-type: disc;
-          list-style-position: inside;
+        dl {
+          dd {
+            & > ol { 
+              & > li {
+                list-style-type: decimal;
+                list-style-position: outside;
+                margin-botton: 20px;
+                & > h3 {
+                  font-size: 16px;
+                  padding: 10px 0;
+                  margin: 10px 0;
+                }
+                & > h4 {
+                  font-size: 15px;
+                  padding: 10px 0;
+                  margin: 10px 0;
+                }
+                & > ul {
+                  & > li {
+                    list-style-type: disc;
+                    list-style-position: inside;
+                  }
+                }
+              }
+            }
+          }
         }
-        dd ol li {
-          list-style-type: decimal;
-          list-style-position: outside;
-        }
-      }
+      } 
       & > div.contents-disaster {
         @include h1box($theme_color3);
         p.add_lineat {
