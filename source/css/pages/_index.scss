@@ -596,6 +596,9 @@ ul.contents {
                   margin: 10px 0;
                 }
                 & > ul {
+                  &.sign_plate_sets {
+                    margin-bottom: 20px;
+                  }
                   & > li {
                     list-style-type: disc;
                     list-style-position: inside;
