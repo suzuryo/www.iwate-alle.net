@@ -1,5 +1,4 @@
 const $ = require('jquery');
-const _ = require('lodash');
 const page = require('page');
 
 const resetClass = () => {
@@ -14,7 +13,7 @@ const slideOut = () => {
 };
 
 const main = (e) => {
-  const hs = _.replace(e.path, /^\/#|^\/$/, '');
+  const hs = e.path.replace(/^\/#|^\/$/, '');
   switch (hs) {
     case 'goal':
       $('.summary li.goal div.p_t').hide();
