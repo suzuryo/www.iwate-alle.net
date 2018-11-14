@@ -1,5 +1,5 @@
-const $ = require('jquery');
-const page = require('page');
+import $ from 'jquery';
+import page from 'page';
 
 const resetClass = () => {
   $('.summary > li').removeClass('slide_out');

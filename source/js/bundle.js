@@ -1,4 +1,4 @@
-require('./_avoid_console_errors');
-require('./_ga');
-require('./_slidingPanel');
-require('./_mail');
+import './_avoid_console_errors';
+import './_ga';
+import './_slidingPanel';
+import './_mail';
