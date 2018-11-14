@@ -12,8 +12,6 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-page '/', layout: 'layout-index'
-
 configure :development do
   activate :livereload
 end
