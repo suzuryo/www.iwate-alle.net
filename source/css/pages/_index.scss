@@ -574,12 +574,11 @@ ul.contents {
             list-style-type: disc;
             margin-left:2em;
             margin-bottom:1em;
-        ul.omonashiyouyouto {          
+        ul.omonashiyouyouto {
           li {
-            display: list-item;
-            list-style-type: disc;
-            margin-left:2em;
-            margin-bottom:1em;
+            list-style-type: decimal;
+            list-style-position: outside;
+            margin-botton: 20px;
           }
         }
       } 
