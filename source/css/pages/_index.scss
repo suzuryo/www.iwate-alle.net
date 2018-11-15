@@ -574,20 +574,17 @@ ul.contents {
             list-style-type: disc;
             margin-left:2em;
             margin-bottom:1em;
-        ul.omonashiyouyouto {
+        ul.omonashiyouyouto {          
           li {
+            display: list-item;
             list-style-type: disc;
             margin-left:2em;
             margin-bottom:1em;
-                }
-              }
-            }
           }
         }
-      }  
-
-        }
-      }
+      } 
+    }
+  }
       & > div.contents-activities {
         @include h1box($theme_color2);
         dl {
