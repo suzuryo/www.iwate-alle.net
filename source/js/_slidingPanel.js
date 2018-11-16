@@ -77,7 +77,3 @@ $(() => {
     }
   });
 });
-
-module.exports = {
-  slidingPanel: 'slidingPanel',
-};
