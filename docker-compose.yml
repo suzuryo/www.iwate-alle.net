@@ -1,0 +1,108 @@
+version: '3'
+services:
+  middleman:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bundle exec middleman server
+    env_file:
+    - ./.env.dev
+    volumes:
+    - .:/app
+    - data:/usr/local/bundle
+    ports:
+    - 4567:4567
+    - 35729:35729
+    tty: true
+    stdin_open: true
+    networks:
+      selenium_hub:
+        ipv4_address: 172.20.0.100
+  rspec_guard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ['./bin/wait-for-it.sh', 'hub:4444', '--', './bin/wait-for-it.sh', 'node-chrome-debug:5900',  '--', 'bundle', 'exec', 'guard']
+    env_file:
+    - .env.dev
+    environment: &SELENIUM_NODE_ENV
+      # this is a necessary workaround due to a known bug
+      # https://github.com/SeleniumHQ/docker-selenium/issues/133
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_HOST: hub
+      HUB_PORT: 4444
+      APP_HOST: 172.20.0.100
+      APP_PORT: 4567
+    volumes:
+    - .:/app
+    - data:/usr/local/bundle
+    depends_on:
+    - middleman
+    - hub
+    - node-chrome-debug
+    - node-firefox-debug
+    tty: true
+    stdin_open: true
+    networks:
+      selenium_hub:
+        ipv4_address: 172.20.0.110
+  hub:
+    image: selenium/hub:3.141.59-antimony
+    environment:
+      GRID_BROWSER_TIMEOUT: 10000 # 10 seconds
+      GRID_TIMEOUT: 10000
+      VIRTUAL_HOST: selenium.hub.docker
+    ports:
+    - "4444:4444"
+    networks:
+      selenium_hub:
+        ipv4_address: 172.20.0.120
+  node-chrome-debug:
+    image: selenium/node-chrome-debug:3.141.59-antimony
+    environment:
+      <<: *SELENIUM_NODE_ENV
+    depends_on:
+    - hub
+    volumes:
+    - /dev/shm:/dev/shm
+    ports:
+    - "5900:5900"
+    extra_hosts:
+    - "www.google-analytics.com:127.0.0.1"
+    networks:
+      selenium_hub:
+        ipv4_address: 172.20.0.121
+  node-firefox-debug:
+    image: selenium/node-firefox-debug:3.141.59-antimony
+    environment:
+      <<: *SELENIUM_NODE_ENV
+    depends_on:
+    - hub
+    volumes:
+    - /dev/shm:/dev/shm
+    ports:
+    - "5901:5900"
+    extra_hosts:
+    - "www.google-analytics.com:127.0.0.1"
+    networks:
+      selenium_hub:
+        ipv4_address: 172.20.0.122
+  rubymine:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+    - data:/usr/local/bundle
+    networks:
+      selenium_hub:
+        ipv4_address: 172.20.0.200
+volumes:
+  data:
+networks:
+  selenium_hub:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.20.0.0/24

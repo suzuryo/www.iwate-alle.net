@@ -3,7 +3,6 @@
 source 'https://rubygems.org'
 
 gem 'middleman', '>= 4.2'
-gem 'middleman-autoprefixer'
 gem 'middleman-livereload', '~> 3.4.6'
 gem 'slim'
 
@@ -13,10 +12,13 @@ group :development do
 end
 
 group :test do
+  gem 'activesupport'
   gem 'capybara'
   gem 'guard'
-  gem 'guard-rspec'
+  gem 'guard-shell'
   gem 'rake'
+  gem 'rack'
+  gem 'rack-test'
   gem 'rspec'
   gem 'ruby_gntp'
   gem 'selenium-webdriver'

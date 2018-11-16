@@ -1,11 +1,13 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: {
     'js/bundle': './source/js/bundle.js',
     'css/styles': './source/css/_styles.scss',
   },
+
+  devtool: 'source-map',
 
   resolve: {
     modules: [
@@ -29,7 +31,25 @@ const config = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              minimize: true,
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [
+                require('autoprefixer')({
+                  grid: true,
+                }),
+              ],
+            },
+          },
           'sass-loader',
         ],
       },
