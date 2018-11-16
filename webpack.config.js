@@ -1,5 +1,5 @@
-import path from 'path';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: {
@@ -25,7 +25,12 @@ const config = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components|\.tmp|vendor)/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.scss$/,
