@@ -1,4 +1,4 @@
-const $ = require('jquery');
+import $ from 'jquery';
 
 const c = (t) => {
   let s = '';

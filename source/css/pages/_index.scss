@@ -548,6 +548,7 @@ $theme_color4: #8d694e;
 ul.contents {
   & > li {
     & > section {
+      padding-bottom: 30px;
       dl {
         dt {
           margin-bottom:0.5em;
@@ -573,16 +574,49 @@ ul.contents {
             list-style-type: disc;
             margin-left:2em;
             margin-bottom:1em;
+        ul.omonashiyouyouto {
+          li {
+            list-style-type: decimal;
+            list-style-position: outside;
+            margin-botton: 20px;
           }
         }
-      }
+      } 
+    }
+  }
       & > div.contents-activities {
         @include h1box($theme_color2);
-        dd ul li {
-          list-style-type: disc;
-          list-style-position: inside;
+        dl {
+          dd {
+            & > ol { 
+              & > li {
+                list-style-type: decimal;
+                list-style-position: outside;
+                margin-botton: 20px;
+                & > h3 {
+                  font-size: 16px;
+                  padding: 10px 0;
+                  margin: 10px 0;
+                }
+                & > h4 {
+                  font-size: 15px;
+                  padding: 10px 0;
+                  margin: 10px 0;
+                }
+                & > ul {
+                  &.sign_plate_sets {
+                    margin-bottom: 20px;
+                  }
+                  & > li {
+                    list-style-type: disc;
+                    list-style-position: inside;
+                  }
+                }
+              }
+            }
+          }
         }
-      }
+      } 
       & > div.contents-disaster {
         @include h1box($theme_color3);
         p.add_lineat {

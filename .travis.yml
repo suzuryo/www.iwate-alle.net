@@ -1,4 +1,6 @@
 language: ruby
+node_js:
+  - 10
 script: bundle exec middleman build
 before_script:
   - bundle install
