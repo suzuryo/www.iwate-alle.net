@@ -31,7 +31,7 @@ configure :build do
   activate :gzip
 end
 
-config[:host] = 'http://www.iwate-alle.net'
+config[:host] = 'https://www.iwate-alle.net'
 
 # Helpers
 require 'lib/titled_helpers'
