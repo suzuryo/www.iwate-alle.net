@@ -577,10 +577,15 @@ ul.contents {
         ul.omonashiyouyouto {
           li {
             list-style-type: decimal;
-            list-style-position: outside;
-            margin-botton: 20px;
-          }
-        }
+            list-style-position:outside;
+            margin-bottom:20px;
+        ul.katudoujisseki {
+          li {
+            list-style-type: decimal;
+            list-style-position:outside;
+            margin-bottom:20px;
+
+                        
       } 
     }
   }
