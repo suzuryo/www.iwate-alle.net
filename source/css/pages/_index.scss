@@ -572,17 +572,77 @@ ul.contents {
         ul.omonakatsudou {
           li {
             list-style-type: disc;
-            margin-left:2em;
-            margin-bottom:1em;
-        ul.omonashiyouyouto {
+            margin-left: 2em;
+            margin-bottom: 1em;
+          }
+        }
+      }
+        ul.lecture {
           li {
-            list-style-type: decimal;
-            list-style-position:outside;
-            margin-bottom:20px;
-      } 
-    }
-  }
-      & > div.contents-activities {
+            list-style-type: decimal-leading-zero;
+            list-style-position: inside;
+            margin-bottom: 5px;
+            margin-left: 2em;
+            font-size: 95%;
+            font-weight: bolder;
+          }
+           p {
+            list-style-position: inside;
+            margin-bottom: 10px;
+            margin-left: 5em;
+            font-size: 90%;
+          }
+        }
+        ul.newspaper {
+          li {
+            list-style-type: decimal-leading-zero;
+            list-style-position: inside;
+            margin-bottom: 5px;
+            margin-left: 2em;
+            font-size: 95%;
+            font-weight: bolder;
+          }
+           p {
+            list-style-position: inside;
+            margin-bottom: 10px;
+            margin-left: 5em;
+            font-size: 90%;
+          }
+        }
+          ul.radio {
+          li {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-bottom: 5px;
+            margin-left: 2em;
+            font-size: 95%;
+            font-weight: bolder 
+          }
+          p {
+            list-style-position: inside;
+            margin-bottom: 10px;
+            margin-left: 5em;
+            font-size: 90%;
+          }
+        }
+        ul.tv {
+          li {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-bottom: 5px;
+            margin-left: 2em;
+            font-size: 95%;
+            font-weight: bolder 
+          }
+          p {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-bottom: 10px;
+            margin-left: 5em;
+            font-size: 90%;
+        }
+      }
+        & > div.contents-activities {
         @include h1box($theme_color2);
         dl {
           dd {
