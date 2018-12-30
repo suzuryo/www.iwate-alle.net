@@ -576,80 +576,32 @@ ul.contents {
             margin-bottom: 1em;
           }
         }
-        ul.lecture {
-         li {
-            list-style-type: decimal-leading-zero;
-            list-style-position: inside;
-            margin-bottom: 5px;
-            margin-left: 2em;
-            font-size: 95%;
-            font-weight: bold;
-            padding: 10px 0;
-         }
-          p {
-            list-style-position: inside;
-            margin-bottom: 10px;
-            margin-left: 5em;
-            font-size: 90%;
-            font-weight: lighter;
-          }
+        h2.katudoujisseki { 
+          font-size: 100%;
         }
-        ul.newspaper {
-         li {
-            list-style-type: decimal-leading-zero;
+        h3.katudoujisseki{
+          font-size: 98%;
+        }
+        dl.katudoujisseki {
+          dt {
+            display: list-item;
+            list-style: decimal-leading-zero;
             list-style-position: inside;
             margin-bottom: 5px;
             margin-left: 2em;
             font-size: 95%;
             font-weight: bolder;
             padding: 10px 0;
-         }
-          p {
-            list-style-position: inside;
-            margin-bottom: 10px;
-            margin-left: 5em;
-            font-size: 90%;
-            font-weight: lighter;
           }
-        }
-        ul.radio {
-         li {
-            list-style-type: disc;
-            list-style-position: inside;
-            margin-bottom: 5px;
-            margin-left: 2em;
-            font-size: 95%;
-            font-weight: bolder;
-            padding: 10px 0;
-         }
-          p {
+          dd {
             list-style-position: inside;
             margin-bottom: 10px;
-            margin-left: 5em;
-            font-size: 85%;
-          }
-        }
-        ul.tv {
-         li {
-            list-style-type: disc;
-            list-style-position: inside;
-            margin-bottom: 5px;
-            margin-left: 2em;
-            font-size: 95%;
-            font-weight: bolder; 
-            padding: 10px 0;
-         }
-          p {
-            list-style-type: disc;
-            list-style-position: inside;
-            margin-bottom: 10px;
-            margin-left: 5em;
+            margin-left: 3em;
             font-size: 90%;
-            font-weight: lighter;
           }
         }
       }
-      & > div.contents-activities {
+        & > div.contents-activities {
         @include h1box($theme_color2);
         dl {
           dd {
