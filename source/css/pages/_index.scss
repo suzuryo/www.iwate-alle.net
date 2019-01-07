@@ -579,13 +579,13 @@ ul.contents {
         h2.katudoujisseki { 
           font-size: 100%;
         }
-        h3.katudoujisseki{
+        h3.katudoujisseki {
           font-size: 98%;
         }
         dl.katudoujisseki {
           dt {
             display: list-item;
-            list-style: decimal-leading-zero;
+            list-style-type: square;
             list-style-position: inside;
             margin-bottom: 5px;
             margin-left: 2em;
@@ -601,7 +601,7 @@ ul.contents {
           }
         }
       }
-        & > div.contents-activities {
+          & > div.contents-activities {
         @include h1box($theme_color2);
         dl {
           dd {
