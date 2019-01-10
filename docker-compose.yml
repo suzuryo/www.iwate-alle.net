@@ -1,6 +1,6 @@
 version: '3'
 services:
-  middleman:
+  iwatealle_middleman:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -18,7 +18,7 @@ services:
     networks:
       selenium_hub:
         ipv4_address: 172.20.0.100
-  rspec_guard:
+  iwatealle_rspec_guard:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -38,16 +38,16 @@ services:
     - .:/app
     - data:/usr/local/bundle
     depends_on:
-    - middleman
-    - hub
-    - node-chrome-debug
-    - node-firefox-debug
+    - iwatealle_middleman
+    - iwatealle_hub
+    - iwatealle_node-chrome-debug
+    - iwatealle_node-firefox-debug
     tty: true
     stdin_open: true
     networks:
       selenium_hub:
         ipv4_address: 172.20.0.110
-  hub:
+  iwatealle_hub:
     image: selenium/hub:3.141.59-antimony
     environment:
       GRID_BROWSER_TIMEOUT: 10000 # 10 seconds
@@ -58,12 +58,12 @@ services:
     networks:
       selenium_hub:
         ipv4_address: 172.20.0.120
-  node-chrome-debug:
+  iwatealle_node-chrome-debug:
     image: selenium/node-chrome-debug:3.141.59-antimony
     environment:
       <<: *SELENIUM_NODE_ENV
     depends_on:
-    - hub
+    - iwatealle_hub
     volumes:
     - /dev/shm:/dev/shm
     ports:
@@ -73,12 +73,12 @@ services:
     networks:
       selenium_hub:
         ipv4_address: 172.20.0.121
-  node-firefox-debug:
+  iwatealle_node-firefox-debug:
     image: selenium/node-firefox-debug:3.141.59-antimony
     environment:
       <<: *SELENIUM_NODE_ENV
     depends_on:
-    - hub
+    - iwatealle_hub
     volumes:
     - /dev/shm:/dev/shm
     ports:
@@ -88,7 +88,7 @@ services:
     networks:
       selenium_hub:
         ipv4_address: 172.20.0.122
-  rubymine:
+  iwatealle_rubymine:
     build:
       context: .
       dockerfile: Dockerfile.dev
