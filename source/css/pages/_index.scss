@@ -601,7 +601,7 @@ ul.contents {
           }
         }
       }
-          & > div.contents-activities {
+      & > div.contents-activities {
         @include h1box($theme_color2);
         dl {
           dd {
