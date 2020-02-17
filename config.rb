@@ -27,7 +27,7 @@ activate :external_pipeline,
 
 configure :build do
   set :slim, pretty: false, sort_attrs: true, format: :html
-  activate :asset_hash
+  # activate :asset_hash
   activate :gzip
 end
 
