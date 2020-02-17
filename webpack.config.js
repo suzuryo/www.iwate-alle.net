@@ -6,6 +6,7 @@ const config = {
 
   entry: {
     'js/bundle': './source/js/bundle.js',
+    'css/styles': './source/css/_styles.scss',
   },
 
   devtool: 'source-map',
