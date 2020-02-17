@@ -1,10 +1,7 @@
-language:
-  - ruby
-  - node_js
-node_js:
-  - 10
+language: ruby
 script: bundle exec middleman build
 before_script:
+  - nvm install 10.15.3
   - node -v
   - bundle install
   - yarn install
