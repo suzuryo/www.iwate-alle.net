@@ -2,9 +2,10 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
+  mode: 'production',
+
   entry: {
     'js/bundle': './source/js/bundle.js',
-    'css/styles': './source/css/_styles.scss',
   },
 
   devtool: 'source-map',
@@ -38,11 +39,6 @@ const config = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              url: false,
-              minimize: true,
-              sourceMap: true,
-            },
           },
           {
             loader: 'postcss-loader',
