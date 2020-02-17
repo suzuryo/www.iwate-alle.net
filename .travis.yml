@@ -1,4 +1,6 @@
-language: ruby
+language:
+  - ruby
+  - node_js
 node_js:
   - 10
 script: bundle exec middleman build
