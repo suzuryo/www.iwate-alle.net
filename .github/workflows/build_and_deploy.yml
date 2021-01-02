@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-node-14-yarn-${{ hashFiles('**/yarn.lock') }}
       - name: yarn install
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile && yarn global add firebase-tools
+        run: yarn install --frozen-lockfile
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
