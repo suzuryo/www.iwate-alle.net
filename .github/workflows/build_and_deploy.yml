@@ -1,9 +1,9 @@
 name: Build and Deploy
 
 on:
-  push:
+  pull_request:
     branches:
-      - development
+      - master
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: development
+          ref: master
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
