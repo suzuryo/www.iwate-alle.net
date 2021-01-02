@@ -58,4 +58,7 @@ jobs:
           bundle exec middleman build
       - name: deploy
         run: |
-          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} --non-interactive
+          npx firebase deploy
+        env:
+          CI: true
+          FIREBASE_TOKEN: ${{ secrets.YOUR_SECRET }}
