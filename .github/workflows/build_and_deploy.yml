@@ -56,9 +56,9 @@ jobs:
       - name: build
         run: |
           bundle exec middleman build
-      - name: deploy
-        run: |
-          npx firebase deploy
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
         env:
-          CI: true
-          FIREBASE_TOKEN: ${{ secrets.YOUR_SECRET }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
