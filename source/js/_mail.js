@@ -17,7 +17,3 @@ const mailText = `<a href="mailto:${es}">${es}</a>`;
 $(() => {
   $('.iwate_alle_mail').append(mailText);
 });
-
-module.exports = {
-  mail: 'mail',
-};

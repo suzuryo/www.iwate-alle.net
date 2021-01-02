@@ -1,0 +1,77 @@
+body#x311 {
+  font-size: 80%;
+
+  #container {
+    width: 650px;
+    margin: 0 auto;
+
+    header {
+      h1 {
+        font-size: 2em;
+        margin: 10px 0;
+        color: #f66;
+      }
+    }
+
+    #caution,
+    #contact,
+    #require,
+    #stock {
+      border: 1px solid #f66;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+
+    #info {
+      #caution {
+        h2 {
+          font-size: 1.3em;
+          margin-bottom: 20px;
+        }
+        p {
+          margin-bottom: 1em;
+        }
+      }
+      #contact {
+        h3 {
+          font-size: 1.3em;
+          margin-bottom: 20px;
+        }
+        ul {
+          margin-bottom: 1em;
+        }
+        p {
+          margin-bottom: 1em;
+        }
+      }
+    }
+
+    #require {
+      h4 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+      }
+      ul {
+        margin-bottom: 20px;
+      }
+    }
+
+    #stock {
+      h4 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+      }
+      ul {
+        margin-bottom: 20px;
+        li.ofs {
+          color: #999;
+        }
+      }
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+    }
+  }
+}

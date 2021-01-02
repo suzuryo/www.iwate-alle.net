@@ -16,7 +16,3 @@
     }
   });
 }).call();
-
-module.exports = {
-  avoid_console_errors: 'avoid_console_errors',
-};

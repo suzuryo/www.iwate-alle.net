@@ -5,7 +5,3 @@
 
 ga('create', 'UA-91319936-1', 'auto');
 ga('send', 'pageview');
-
-module.exports = {
-  ga: 'ga',
-};

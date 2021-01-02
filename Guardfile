@@ -2,19 +2,39 @@
 
 notification :gntp
 
-guard :rspec, cmd: 'bundle exec rspec' do
-  # RSpec files
-  watch(%r{^spec/.+_spec\.rb$})
+require 'open3'
 
-  # spec helper
-  watch('spec/spec_helper.rb') { 'spec' }
 
-  # slim files
-  watch(%r{^source/(.+)\.html\.slim$}) { |m| "spec/features/#{m[1]}_spec.rb" }
+guard :shell do
 
-  # js files
-  watch(%r{^source/js/.+\.js$}) { 'spec' }
+  directories %w(source lib spec test)
 
-  # scss files
-  watch(%r{^source/css/.+\.scss$}) { 'spec' }
+  watch  %r{^spec/features/.+_spec\.rb$} do |m|
+    m[0] + " has changed."
+    Open3.popen3("ruby ./bin/testrunner.rb docker --spec_path #{m[0]}") do |_i, o, e, _w|
+      o.each { |line| puts line }
+      e.each { |line| puts line }
+    end
+  end
+
+  watch  %r{^source/js/.+\.js$} do |m|
+    m[0] + " has changed."
+    Open3.popen3("yarn run test") do |_i, o, e, _w|
+      o.each { |line| puts line }
+      e.each { |line| puts line }
+    end
+    Open3.popen3("ruby ./bin/testrunner.rb docker") do |_i, o, e, _w|
+      o.each { |line| puts line }
+      e.each { |line| puts line }
+    end
+  end
+
+  watch  %r{^test/.+_spec\.js$} do |m|
+    m[0] + " has changed."
+    Open3.popen3("yarn run test") do |_i, o, e, _w|
+      o.each { |line| puts line }
+      e.each { |line| puts line }
+    end
+  end
+
 end

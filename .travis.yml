@@ -1,8 +1,8 @@
 language: ruby
-node_js:
-  - 10
 script: bundle exec middleman build
 before_script:
+  - nvm install 10.15.3
+  - node -v
   - bundle install
   - yarn install
   - yarn global add firebase-tools

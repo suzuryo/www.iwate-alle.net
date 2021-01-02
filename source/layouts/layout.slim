@@ -9,14 +9,14 @@ html lang='ja' prefix='og: http://ogp.me/ns#'
     meta property='og:title' content="#{titled}"
     meta property='og:description' content="#{current_page.data.desc}"
     meta property='og:url' content="#{config[:host]}#{current_page.url}"
-    meta property='og:image' content='http://www.iwate-alle.net/img/logo.png'
+    meta property='og:image' content='#{config[:host]}/img/logo.png'
     meta property='og:type' content='website'
     meta property='og:locale' content='ja_JP'
     meta name='twitter:title' content="#{titled}"
     meta name='twitter:description' content="#{current_page.data.desc}"
-    meta name='twitter:image' content='http://www.iwate-alle.net/img/logo.png'
+    meta name='twitter:image' content='#{config[:host]}/img/logo.png'
     meta name='twitter:card' content='summary'
-    link rel='apple-touch-icon' sizes='152x152' href='/img/apple-touch-icon-152×152.png'
+    link rel='apple-touch-icon' sizes='152x152' href='#{config[:host]}/img/apple-touch-icon-152×152.png'
     == stylesheet_link_tag 'styles'
     == javascript_include_tag 'bundle'
 
