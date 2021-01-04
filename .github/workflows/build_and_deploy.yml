@@ -1,9 +1,10 @@
 name: Build and Deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - master
+      - develop
 
 jobs:
   build:
@@ -35,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-node-14-yarn-${{ hashFiles('**/yarn.lock') }}
       - name: yarn install
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile && yarn global add firebase-tools
+        run: yarn install --frozen-lockfile
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
@@ -55,6 +56,9 @@ jobs:
       - name: build
         run: |
           bundle exec middleman build
-      - name: deploy
-        run: |
-          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} --non-interactive
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
