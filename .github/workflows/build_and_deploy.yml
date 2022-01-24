@@ -50,7 +50,7 @@ jobs:
           path: ${{ steps.bundle-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-bundle-${{ hashFiles('Gemfile.lock') }}
       - name: bundle install
-        run: bundle install --jobs 4 --retry 3
+        run: bundle install --jobs 4 --retry 3 --without development test
       - name: build
         run: |
           bundle exec middleman build
