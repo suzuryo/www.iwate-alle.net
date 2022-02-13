@@ -151,17 +151,13 @@ gitによるバージョン管理下にある。
 2. ソースコードの編集
 3. git commit
 4. git push
-5. Travis CI による自動ビルド
+5. Github Actions による自動ビルド
 6. firebase に自動デプロイ
 
 変更点をgitリポジトリにpushすることでソースコードの更新が完了する。
 
-git push されると、Travis CI により、自動的にビルドされる。
+git push されると、Github Actions により、自動的にビルドされる。
 エラー無くビルドが完了したら、自動的に firebase に デプロイされる。
-
-ビルドの様子は  
-https://travis-ci.org/suzuryo/www.iwate-alle.net
-にて確認できる。
 
 
 ### github上による直接の編集
