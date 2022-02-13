@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use 'sass:math';
 
 /// Performs gamma correction on a single color channel.
 ///
@@ -13,9 +14,9 @@
 
 @function _gamma($channel) {
   @if $channel < 0.03928 {
-    @return $channel / 12.92;
+    @return math.div($channel, 12.92);
   } @else {
-    $c: ($channel + 0.055) / 1.055;
-    @return (133 * $c * $c * $c + 155 * $c * $c) / 288;
+    $c: math.div(($channel + 0.055), 1.055);
+    @return math.div((133 * $c * $c * $c + 155 * $c * $c), 288);
   }
 }

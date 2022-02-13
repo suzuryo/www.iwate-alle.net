@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "sass:math";
 
 /// Programatically determines the contrast ratio between two colors.
 ///
@@ -24,8 +25,8 @@
   $-local-lightness-2: _lightness($color-2) + 0.05;
 
   @if $-local-lightness-1 > $-local-lightness-2 {
-    @return $-local-lightness-1 / $-local-lightness-2;
+    @return math.div($-local-lightness-1, $-local-lightness-2);
   } @else {
-    @return $-local-lightness-2 / $-local-lightness-1;
+    @return math.div($-local-lightness-2, $-local-lightness-1);
   }
 }

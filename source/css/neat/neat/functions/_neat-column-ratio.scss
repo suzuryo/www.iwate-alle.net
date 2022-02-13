@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@use "sass:math";
+
 /// Determine the ratio of `$columns` to the total column count.
 /// If `$columns` is more than one value, they are handed to
 /// `_neat-parse-columns()` which will detirmine the total columns and use this
@@ -17,8 +19,8 @@
 
 @function _neat-column-ratio($grid, $columns) {
   @if length($columns) > 1 {
-    @return nth($columns, 1) / _neat-parse-columns($columns);
+    @return math.div(nth($columns, 1), _neat-parse-columns($columns));
   } @else if $columns {
-    @return $columns / _retrieve-neat-setting($grid, columns);
+    @return math.div($columns, _retrieve-neat-setting($grid, columns));
   }
 }
