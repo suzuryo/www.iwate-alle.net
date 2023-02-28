@@ -14,43 +14,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '14'
-      - name: restore node_modules
-        uses: actions/cache@v2
-        id: node-modules-cache
-        with:
-          path: |
-            node_modules
-            **/node_modules
-          key: ${{ runner.os }}-node-14-node_modules-${{ hashFiles('yarn.lock') }}
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: restore yarn cache
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-14-yarn-${{ hashFiles('**/yarn.lock') }}
+          node-version: '16'
       - name: yarn install
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7'
-      - name: Set bundle cache directory path
-        id: bundle-cache-dir-path
-        run: |
-          bundle config path vendor/bundle
-          echo "::set-output name=dir::vendor/bundle"
-      - name: bundle Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.bundle-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-bundle-${{ hashFiles('Gemfile.lock') }}
       - name: bundle install
-        run: bundle install --jobs 4 --retry 3 --without development test
+        run: bundle install
       - name: build
         run: |
           bundle exec middleman build --verbose
