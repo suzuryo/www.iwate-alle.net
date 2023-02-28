@@ -2,9 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'middleman', '>= 4.2'
-gem 'middleman-livereload', '~> 3.4.6'
-gem 'slim'
+gem 'middleman', '4.4.3'
+gem 'middleman-livereload', '3.4.7'
+gem 'slim', '4.1.0'
 
 group :development do
   gem 'puma'
