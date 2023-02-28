@@ -24,5 +24,3 @@
 # Ignore node_modules
 /node_modules
 /screenshot
-/Gemfile.lock
-/yarn.lock
