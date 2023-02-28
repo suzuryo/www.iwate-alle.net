@@ -1,5 +1,5 @@
-FROM node:16.14.0 as node
-FROM ruby:2.7.5
+FROM node:16.19.1 as node
+FROM ruby:2.7.7
 
 ENV LANG C.UTF-8
 
@@ -8,7 +8,7 @@ RUN apt-get update -qq && \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-ENV YARN_VERSION 1.22.17
+ENV YARN_VERSION 1.22.19
 
 COPY --from=node /opt/yarn-v$YARN_VERSION /opt/yarn
 COPY --from=node /usr/local/bin/node /usr/local/bin/

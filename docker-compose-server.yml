@@ -1,12 +1,15 @@
 version: '3'
 services:
-  iwatealle_middleman_build:
+  iwatealle_middleman_server:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    command: bundle exec middleman build
+    command: bundle exec middleman server
     env_file:
       - ./.env.dev
     volumes:
       - .:/app
+    ports:
+      - 4567:4567
+      - 35729:35729
     tty: true
