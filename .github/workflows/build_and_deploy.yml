@@ -14,13 +14,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '16'
+          node-version: '16.19.1'
       - name: yarn install
         run: yarn install --frozen-lockfile
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: '2.7.7'
       - name: bundle install
         run: bundle install
       - name: build
