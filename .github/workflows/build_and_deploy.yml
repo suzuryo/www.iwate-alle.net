@@ -53,7 +53,7 @@ jobs:
         run: bundle install --jobs 4 --retry 3 --without development test
       - name: build
         run: |
-          bundle exec middleman build
+          bundle exec middleman build --verbose
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
