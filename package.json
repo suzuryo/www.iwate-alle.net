@@ -14,7 +14,6 @@
     "@babel/preset-env": "^7.8.4",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
-    "babel-preset-power-assert": "^3.0.0",
     "css-loader": "^3.4.2",
     "mini-css-extract-plugin": "^0.9.0",
     "sass": "1.49.7",
