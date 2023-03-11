@@ -119,6 +119,7 @@ PLATFORMS
 DEPENDENCIES
   middleman (= 4.4.3)
   middleman-livereload (= 3.4.7)
+  minitest (= 5.17.0)
   puma
   slim (= 4.1.0)
 
