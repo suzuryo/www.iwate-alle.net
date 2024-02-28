@@ -10,8 +10,8 @@
     "page": "1.11.6"
   },
   "devDependencies": {
-    "@babel/core": "7.21.0",
-    "@babel/preset-env": "7.20.2",
+    "@babel/core": "7.24.0",
+    "@babel/preset-env": "7.24.0",
     "autoprefixer": "9.8.8",
     "babel-loader": "8.0.6",
     "css-loader": "3.6.0",
